@@ -63,7 +63,7 @@ class _CategoryPageState extends State<CategoryPage> {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     SizedBox(
-                                      height: 40,
+                                      height: 20,
                                     ),
                                     FadeAnimation(
                                       0.5,
@@ -108,7 +108,7 @@ class _CategoryPageState extends State<CategoryPage> {
                               fontSize: 40),
                         ),
                         SizedBox(
-                          height: 90,
+                          height: 60,
                         ),
                       ],
                     ),
@@ -128,7 +128,7 @@ class _CategoryPageState extends State<CategoryPage> {
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 18,
-                            fontWeight: FontWeight.bold ),
+                            fontWeight: FontWeight.bold),
                       ),
                       Row(
                         children: [
@@ -148,8 +148,13 @@ class _CategoryPageState extends State<CategoryPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 30,),
-
+                  SizedBox(
+                    height: 20,
+                  ),
+                  makeProduct(
+                      image: 'assets/images/image1.jpg',
+                      title: "Escultura",
+                      price: "300\$")
                 ],
               ),
             )
@@ -157,5 +162,74 @@ class _CategoryPageState extends State<CategoryPage> {
         ),
       ),
     );
+  }
+
+  Widget makeProduct({image, title, price}) {
+    return FadeAnimation(
+        0.5,
+        Container(
+          height: 200,
+          width: double.infinity,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image:
+                  DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              gradient: LinearGradient(begin: Alignment.bottomRight, colors: [
+                Colors.black.withOpacity(.8),
+                Colors.black.withOpacity(.0)
+              ]),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            title,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                          Text(
+                            price,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 40,
+                      height: 40,
+                      margin: EdgeInsets.only(right: 25),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle, color: Colors.white),
+                      child: Center(
+                        child: Icon(
+                          Icons.add_shopping_cart,
+                          size: 18,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ));
   }
 }

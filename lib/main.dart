@@ -27,14 +27,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     super.initState();
 
     _scaleController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 200));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 0));
 
     _scaleAnimation =
         Tween<double>(begin: 1.0, end: 30.0).animate(_scaleController)
           ..addStatusListener((status) {
             if (status == AnimationStatus.completed) {
-              Navigator.push(context,
-                  PageTransition(type: PageTransitionType.fade, child: Shop()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Shop()));
             }
           });
   }
@@ -93,7 +93,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     animation: _scaleController,
                     builder: (context, child) => Transform.scale(
                       scale: _scaleAnimation.value,
-                      child: FadeAnimation(1,
+                      child: FadeAnimation(
+                        1,
                         Container(
                           height: 50,
                           decoration: BoxDecoration(
@@ -102,9 +103,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           child: Center(
                             child: hide == false
                                 ? Text(
-                              "Comencemos",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            )
+                                    "Comencemos",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )
                                 : Container(),
                           ),
                         ),
