@@ -1,5 +1,6 @@
 import 'package:artemy_beta_2/config/Animation.dart';
 import 'package:artemy_beta_2/model/Category.dart';
+import 'package:artemy_beta_2/screens/CategoryPage.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -144,7 +145,10 @@ class _ShopState extends State<Shop> {
                                 margin: EdgeInsets.symmetric(horizontal: 10),
                                 child: ClipRRect(
                                     borderRadius: BorderRadius.circular(16),
-                                    child: makeCategory(image: category.url,title: category.name)),
+                                    child: makeCategory(
+                                        image: category.url,
+                                        title: category.name,
+                                        tag: category.tag)),
                               );
                             },
                           );
@@ -182,7 +186,10 @@ class _ShopState extends State<Shop> {
                                 margin: EdgeInsets.symmetric(horizontal: 10),
                                 child: ClipRRect(
                                     borderRadius: BorderRadius.circular(16),
-                                    child: makeCategory(image: category.url,title: category.name)),
+                                    child: makeCategory(
+                                        image: category.url,
+                                        title: category.name,
+                                        tag: category.tag)),
                               );
                             },
                           );
@@ -197,44 +204,62 @@ class _ShopState extends State<Shop> {
     );
   }
 
-
   List categoriesList = [
-    new Category("Navidad", "assets/images/image4.jpg"),
-    new Category("Orfebreria", "assets/images/image3.jpg"),
-    new Category("Escultural", "assets/images/image2.jpg"),
-    new Category("Lienzo", "assets/images/image1.jpg"),
+    new Category("Navidad", "assets/images/image4.jpg", "Diciembre"),
+    new Category("Orfebreria", "assets/images/image3.jpg", "Medieval"),
+    new Category("Escultural", "assets/images/image2.jpg", "Visual"),
+    new Category("Lienzo", "assets/images/image1.jpg", "Renancentista"),
   ];
 
   List trendsList = [
-    new Category("Culinaria", "assets/images/trend1.jpg"),
-    new Category("Abstracto", "assets/images/trend2.jpg"),
-    new Category("Rupestre", "assets/images/trend3.jpg"),
-    new Category("Bizantino", "assets/images/trend4.jpg"),
+    new Category("Culinaria", "assets/images/trend1.jpg", "Surrealista"),
+    new Category("Abstracto", "assets/images/trend2.jpg", "Psicodelico"),
+    new Category("Rupestre", "assets/images/trend3.jpg", "Cubista"),
+    new Category("Bizantino", "assets/images/trend4.jpg", "Country"),
   ];
 
-  Widget makeCategory({image,title}) {
+  Widget makeCategory({image, title, tag}) {
     return Container(
-      child: Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image:
-                DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
-        child: Container(
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              gradient: LinearGradient(begin: Alignment.bottomRight, colors: [
-                Colors.black.withOpacity(.8),
-                Colors.black.withOpacity(.0)
-              ])),
-          child: Align(
-            alignment: Alignment.bottomLeft,
-            child: Text(
-              title,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16),
+      child: Hero(
+        tag: tag,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => CategoryPage(
+                          title: title,
+                          image: image,
+                          tag: tag,
+                        )));
+          },
+          child: Material(
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                      image: AssetImage(image), fit: BoxFit.cover)),
+              child: Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    gradient: LinearGradient(
+                        begin: Alignment.bottomRight,
+                        colors: [
+                          Colors.black.withOpacity(.8),
+                          Colors.black.withOpacity(.0)
+                        ])),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22),
+                  ),
+                ),
+              ),
             ),
           ),
         ),
