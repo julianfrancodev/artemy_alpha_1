@@ -1,4 +1,5 @@
 import 'package:artemy_beta_2/config/Animation.dart';
+import 'package:artemy_beta_2/model/Category.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -135,7 +136,7 @@ class _ShopState extends State<Shop> {
                       CarouselSlider(
                         options: CarouselOptions(
                             aspectRatio: 16 / 9, autoPlay: true, height: 300),
-                        items: bannerAdsTopSlider.map((i) {
+                        items: categoriesList.map((category) {
                           return Builder(
                             builder: (BuildContext context) {
                               return Container(
@@ -143,7 +144,7 @@ class _ShopState extends State<Shop> {
                                 margin: EdgeInsets.symmetric(horizontal: 10),
                                 child: ClipRRect(
                                     borderRadius: BorderRadius.circular(16),
-                                    child: makeCategory(image: i)),
+                                    child: makeCategory(image: category.url,title: category.name)),
                               );
                             },
                           );
@@ -173,7 +174,7 @@ class _ShopState extends State<Shop> {
                       CarouselSlider(
                         options:
                             CarouselOptions(aspectRatio: 3 / 2.2, height: 200),
-                        items: banneAdsSlider.map((i) {
+                        items: trendsList.map((category) {
                           return Builder(
                             builder: (BuildContext context) {
                               return Container(
@@ -181,7 +182,7 @@ class _ShopState extends State<Shop> {
                                 margin: EdgeInsets.symmetric(horizontal: 10),
                                 child: ClipRRect(
                                     borderRadius: BorderRadius.circular(16),
-                                    child: makeCategory(image: i)),
+                                    child: makeCategory(image: category.url,title: category.name)),
                               );
                             },
                           );
@@ -196,21 +197,22 @@ class _ShopState extends State<Shop> {
     );
   }
 
-  List banneAdsSlider = [
-    "assets/images/trend1.jpg",
-    "assets/images/trend2.jpg",
-    "assets/images/trend3.jpg",
-    "assets/images/trend4.jpg"
+
+  List categoriesList = [
+    new Category("Navidad", "assets/images/image4.jpg"),
+    new Category("Orfebreria", "assets/images/image3.jpg"),
+    new Category("Escultural", "assets/images/image2.jpg"),
+    new Category("Lienzo", "assets/images/image1.jpg"),
   ];
 
-  List bannerAdsTopSlider = [
-    "assets/images/image4.jpg",
-    "assets/images/image3.jpg",
-    "assets/images/image2.jpg",
-    "assets/images/image1.jpg"
+  List trendsList = [
+    new Category("Culinaria", "assets/images/trend1.jpg"),
+    new Category("Abstracto", "assets/images/trend2.jpg"),
+    new Category("Rupestre", "assets/images/trend3.jpg"),
+    new Category("Bizantino", "assets/images/trend4.jpg"),
   ];
 
-  Widget makeCategory({image}) {
+  Widget makeCategory({image,title}) {
     return Container(
       child: Container(
         decoration: BoxDecoration(
@@ -228,7 +230,7 @@ class _ShopState extends State<Shop> {
           child: Align(
             alignment: Alignment.bottomLeft,
             child: Text(
-              "Category",
+              title,
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
