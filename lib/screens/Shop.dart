@@ -1,4 +1,5 @@
 import 'package:artemy_beta_2/config/Animation.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -107,144 +108,111 @@ class _ShopState extends State<Shop> {
                 ),
               ),
             ),
-           FadeAnimation(
-             1,
-               Container(
-                 margin: EdgeInsets.symmetric(vertical: 20),
-                 child: Column(
-                   children: [
-                     Row(
-                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                       children: [
-                         Padding(
-                           padding: const EdgeInsets.symmetric(horizontal: 20),
-                           child: Text(
-                             "Categorias",
-                             style: TextStyle(
-                                 color: Colors.black,
-                                 fontSize: 18,
-                                 fontWeight: FontWeight.bold),
-                           ),
-                         )
-                       ],
-                     ),
-                     SizedBox(
-                       height: 20,
-                     ),
-                     Container(
-                       height: 150,
-                       child: Container(
-                         child: ListView(
-                           scrollDirection: Axis.horizontal,
-                           children: [
-                             makeCategory(
-                                 image: "assets/images/image4.jpg",
-                                 title: "Religioso"),
-                             makeCategory(
-                                 image: "assets/images/image3.jpg",
-                                 title: "Abstracto"),
-                             makeCategory(
-                                 image: "assets/images/image2.jpg",
-                                 title: "Escultural"),
-                             makeCategory(
-                                 image: "assets/images/image1.jpg",
-                                 title: "Culinaria")
-                           ],
-                         ),
-                       ),
-                     ),
-                     SizedBox(
-                       height: 40,
-                     ),
-                     Row(
-                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                       children: [
-                         Padding(
-                           padding: const EdgeInsets.symmetric(horizontal: 20),
-                           child: Text(
-                             "Mas Solicitados",
-                             style: TextStyle(
-                                 color: Colors.black,
-                                 fontSize: 18,
-                                 fontWeight: FontWeight.bold),
-                           ),
-                         )
-                       ],
-                     ),
-                     SizedBox(
-                       height: 20,
-                     ),
-                     Container(
-                       height: 150,
-                       child: Container(
-                         child: ListView(
-                           scrollDirection: Axis.horizontal,
-                           children: [
-                             makeBestSellByCategory(
-                                 image: "assets/images/trend1.jpg",
-                                 title: "Floral"),
-                             makeBestSellByCategory(
-                                 image: "assets/images/trend2.jpg",
-                                 title: "Navidad"),
-                             makeBestSellByCategory(
-                                 image: "assets/images/trend3.jpg",
-                                 title: "Escultural"),
-                             makeBestSellByCategory(
-                                 image: "assets/images/trend4.jpg",
-                                 title: "Ilustrativo")
-                           ],
-                         ),
-                       ),
-                     ),
-                   ],
-                 ),
-               )
-           ),
+            FadeAnimation(
+                1,
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 20),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Text(
+                              "Categorias",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      CarouselSlider(
+                        options: CarouselOptions(
+                            aspectRatio: 16 / 9, autoPlay: true, height: 300),
+                        items: bannerAdsTopSlider.map((i) {
+                          return Builder(
+                            builder: (BuildContext context) {
+                              return Container(
+                                width: MediaQuery.of(context).size.width,
+                                margin: EdgeInsets.symmetric(horizontal: 10),
+                                child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(16),
+                                    child: makeCategory(image: i)),
+                              );
+                            },
+                          );
+                        }).toList(),
+                      ),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Text(
+                              "Mas Solicitados",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      CarouselSlider(
+                        options:
+                            CarouselOptions(aspectRatio: 3 / 2.2, height: 200),
+                        items: banneAdsSlider.map((i) {
+                          return Builder(
+                            builder: (BuildContext context) {
+                              return Container(
+                                width: MediaQuery.of(context).size.width,
+                                margin: EdgeInsets.symmetric(horizontal: 10),
+                                child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(16),
+                                    child: makeCategory(image: i)),
+                              );
+                            },
+                          );
+                        }).toList(),
+                      ),
+                    ],
+                  ),
+                )),
           ],
         ),
       ),
     );
   }
 
-  Widget makeCategory({image, title}) {
-    return Container(
-      child: AspectRatio(
-        aspectRatio: 2 / 2.2,
-        child: Container(
-          margin: EdgeInsets.only(left: 20),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image:
-                  DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
-          child: Container(
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                gradient: LinearGradient(begin: Alignment.bottomRight, colors: [
-                  Colors.black.withOpacity(.8),
-                  Colors.black.withOpacity(.0)
-                ])),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                title,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+  List banneAdsSlider = [
+    "assets/images/trend1.jpg",
+    "assets/images/trend2.jpg",
+    "assets/images/trend3.jpg",
+    "assets/images/trend4.jpg"
+  ];
 
-  Widget makeBestSellByCategory({image, title, price}) {
-    return AspectRatio(
-      aspectRatio: 3 / 2.2,
+  List bannerAdsTopSlider = [
+    "assets/images/image4.jpg",
+    "assets/images/image3.jpg",
+    "assets/images/image2.jpg",
+    "assets/images/image1.jpg"
+  ];
+
+  Widget makeCategory({image}) {
+    return Container(
       child: Container(
-        margin: EdgeInsets.only(left: 20),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             image:
@@ -260,7 +228,7 @@ class _ShopState extends State<Shop> {
           child: Align(
             alignment: Alignment.bottomLeft,
             child: Text(
-              title,
+              "Category",
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
