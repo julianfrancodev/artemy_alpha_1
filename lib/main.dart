@@ -1,7 +1,6 @@
 import 'package:artemy_beta_2/config/Animation.dart';
 import 'package:artemy_beta_2/screens/Shop.dart';
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -16,29 +15,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with TickerProviderStateMixin {
-  AnimationController _scaleController;
-  Animation<double> _scaleAnimation;
-
-  bool hide = false;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    _scaleController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 0));
-
-    _scaleAnimation =
-        Tween<double>(begin: 1.0, end: 30.0).animate(_scaleController)
-          ..addStatusListener((status) {
-            if (status == AnimationStatus.completed) {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Shop()));
-            }
-          });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,9 +26,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         child: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(begin: Alignment.bottomRight, colors: [
-            Colors.black.withOpacity(.9),
-            Colors.black.withOpacity(.4),
-          ])),
+                Colors.black.withOpacity(.9),
+                Colors.black.withOpacity(.4),
+              ])),
           child: Padding(
             padding: EdgeInsets.all(30),
             child: Column(
@@ -84,30 +60,23 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 ),
                 InkWell(
                   onTap: () {
-                    setState(() {
-                      hide = true;
-                    });
-                    _scaleController.forward();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Shop()));
                   },
-                  child: AnimatedBuilder(
-                    animation: _scaleController,
-                    builder: (context, child) => Transform.scale(
-                      scale: _scaleAnimation.value,
-                      child: FadeAnimation(
-                        1,
-                        Container(
-                          height: 50,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(50)),
-                          child: Center(
-                            child: hide == false
-                                ? Text(
-                                    "Comencemos",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  )
-                                : Container(),
+                  child: Container(
+                    child: FadeAnimation(
+                      1,
+                      Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(50)),
+                        child: Center(
+                          child: Text(
+                            "Comencemos",
+                            style:
+                            TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
