@@ -100,12 +100,15 @@ class _CategoryPageState extends State<CategoryPage> {
                             ),
                           ],
                         ),
-                        Text(
-                          widget.title,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 40),
+                        FadeAnimation(
+                          0.5,
+                          Text(
+                            widget.title,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 40),
+                          ),
                         ),
                         SizedBox(
                           height: 60,
@@ -154,7 +157,7 @@ class _CategoryPageState extends State<CategoryPage> {
                   makeProduct(
                       image: 'assets/images/image1.jpg',
                       title: "Escultura",
-                      price: "300\$")
+                      price: "300\$"),
                 ],
               ),
             )
@@ -184,8 +187,17 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                FadeAnimation(1,
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Icon(Icons.favorite_border, color: Colors.white,),
+                    ),
+                  )
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
