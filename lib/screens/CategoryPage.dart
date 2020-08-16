@@ -191,7 +191,7 @@ class _CategoryPageState extends State<CategoryPage> {
               children: [
                 FadeAnimation(1,
                   Padding(
-                    padding: const EdgeInsets.all(30.0),
+                    padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 26),
                     child: Align(
                       alignment: Alignment.topRight,
                       child: Icon(Icons.favorite_border, color: Colors.white,),
@@ -202,7 +202,7 @@ class _CategoryPageState extends State<CategoryPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -224,9 +224,9 @@ class _CategoryPageState extends State<CategoryPage> {
                       ),
                     ),
                     Container(
-                      width: 40,
-                      height: 40,
-                      margin: EdgeInsets.only(right: 25),
+                      width: 35,
+                      height: 35,
+                      margin: EdgeInsets.only(right: 20),
                       decoration: BoxDecoration(
                           shape: BoxShape.circle, color: Colors.white),
                       child: Center(
