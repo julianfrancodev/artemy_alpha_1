@@ -1,3 +1,4 @@
+import 'package:artemy_beta_2/widgets/BodySignUp.dart';
 import 'package:flutter/material.dart';
 
 
@@ -9,6 +10,9 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: BodySignUp(),
+      
+    );
   }
 }
