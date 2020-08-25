@@ -1,11 +1,16 @@
 import 'package:artemy_beta_2/config/Animation.dart';
 import 'package:artemy_beta_2/screens/Shop.dart';
+import 'package:artemy_beta_2/screens/SignUp.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: Home(),
+    theme: ThemeData(
+      primaryColor: Colors.white,
+      accentColor:Colors.white
+    ),
   ));
 }
 
@@ -26,9 +31,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         child: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(begin: Alignment.bottomRight, colors: [
-                Colors.black.withOpacity(.9),
-                Colors.black.withOpacity(.4),
-              ])),
+            Colors.black.withOpacity(.9),
+            Colors.black.withOpacity(.4),
+          ])),
           child: Padding(
             padding: EdgeInsets.all(30),
             child: Column(
@@ -60,8 +65,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
+                    Navigator.push(context,
                         MaterialPageRoute(builder: (context) => Shop()));
                   },
                   child: Container(
@@ -75,8 +79,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         child: Center(
                           child: Text(
                             "Comencemos",
-                            style:
-                            TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
@@ -88,16 +91,22 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 ),
                 FadeAnimation(
                   1,
-                  Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(50)),
-                    child: Center(
-                      child: Text(
-                        "Crear Cuenta",
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => SignUp()));
+                    },
+                    child: Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white),
+                          borderRadius: BorderRadius.circular(50)),
+                      child: Center(
+                        child: Text(
+                          "Crear Cuenta",
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
