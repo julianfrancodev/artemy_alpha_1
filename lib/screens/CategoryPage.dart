@@ -30,7 +30,7 @@ class _CategoryPageState extends State<CategoryPage> {
                       image: DecorationImage(
                           image: AssetImage(widget.image), fit: BoxFit.cover)),
                   child: Container(
-                    margin: EdgeInsets.only(top: 15),
+                    margin: EdgeInsets.only(top: 25),
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         gradient: LinearGradient(

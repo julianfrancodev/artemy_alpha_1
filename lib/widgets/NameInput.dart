@@ -1,12 +1,12 @@
 import 'package:artemy_beta_2/config/Animation.dart';
 import 'package:flutter/material.dart';
 
-class PasswordInput extends StatefulWidget {
+class NameInput extends StatefulWidget {
   @override
-  _PasswordInputState createState() => _PasswordInputState();
+  _NameInputState createState() => _NameInputState();
 }
 
-class _PasswordInputState extends State<PasswordInput> {
+class _NameInputState extends State<NameInput> {
   @override
   Widget build(BuildContext context) {
     return FadeAnimation(
@@ -15,7 +15,7 @@ class _PasswordInputState extends State<PasswordInput> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Contraseña',
+            'Nombre',
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
           SizedBox(
@@ -36,21 +36,21 @@ class _PasswordInputState extends State<PasswordInput> {
             child: TextField(
               obscureText: true,
               cursorColor: Colors.white,
-              keyboardType: TextInputType.visiblePassword,
+              keyboardType: TextInputType.name,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.only(top: 14),
                   prefixIcon: Icon(
-                    Icons.lock,
+                    Icons.person,
                     color: Colors.white,
                   ),
-                  hintText: "Ingresa tu contraseña.",
+                  hintText: "Ingresa tu nombre.",
                   hintStyle: TextStyle(color: Colors.white54)),
             ),
           ),
         ],
       ),
-    );
+    );;
   }
 }

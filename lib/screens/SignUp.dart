@@ -1,6 +1,7 @@
 import 'package:artemy_beta_2/config/Animation.dart';
 import 'package:artemy_beta_2/widgets/EmailInput.dart';
 import 'package:artemy_beta_2/widgets/ForgotButton.dart';
+import 'package:artemy_beta_2/widgets/NameInput.dart';
 import 'package:artemy_beta_2/widgets/PasswordInput.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class _SignUpState extends State<SignUp> {
           Container(
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/login.jpg'),
+                    image: AssetImage('assets/images/signup.jpg'),
                     fit: BoxFit.cover)),
             child: Container(
               decoration: BoxDecoration(
@@ -34,7 +35,7 @@ class _SignUpState extends State<SignUp> {
             height: double.infinity,
             child: SingleChildScrollView(
               physics: AlwaysScrollableScrollPhysics(),
-              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 120),
+              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 80),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -48,6 +49,10 @@ class _SignUpState extends State<SignUp> {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  NameInput(),
                   SizedBox(
                     height: 30,
                   ),
