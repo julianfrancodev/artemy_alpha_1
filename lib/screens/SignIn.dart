@@ -1,19 +1,18 @@
 import 'package:artemy_beta_2/config/Animation.dart';
-import 'package:artemy_beta_2/screens/SignIn.dart';
+import 'package:artemy_beta_2/screens/SignUp.dart';
 import 'package:artemy_beta_2/widgets/ButtonSignUp.dart';
 import 'package:artemy_beta_2/widgets/EmailInput.dart';
 import 'package:artemy_beta_2/widgets/ForgotButton.dart';
-import 'package:artemy_beta_2/widgets/NameInput.dart';
 import 'package:artemy_beta_2/widgets/PasswordInput.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class SignUp extends StatefulWidget {
+class SignIn extends StatefulWidget {
   @override
-  _SignUpState createState() => _SignUpState();
+  _SignInState createState() => _SignInState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignInState extends State<SignIn> {
   Widget _buildSocialButton(Function onTap, AssetImage logo) {
     return FadeAnimation(
         1,
@@ -44,17 +43,17 @@ class _SignUpState extends State<SignUp> {
         GestureDetector(
           onTap: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SignIn()));
+                context, MaterialPageRoute(builder: (context) => SignUp()));
           },
           child: RichText(
             text: TextSpan(
               children: [
                 TextSpan(
-                    text: 'Ya tienes una cuenta? ',
+                    text: 'No tienes una cuenta? ',
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.w400)),
                 TextSpan(
-                    text: 'Inicia Sesion',
+                    text: 'Crear cuenta',
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold))
               ],
@@ -91,24 +90,20 @@ class _SignUpState extends State<SignUp> {
                 height: double.infinity,
                 child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 100),
+                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 150),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       FadeAnimation(
                         0.5,
                         Text(
-                          'Crear Cuenta',
+                          'Iniciar Sesion',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 30,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      NameInput(),
                       SizedBox(
                         height: 25,
                       ),
@@ -149,5 +144,6 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
+    ;
   }
 }

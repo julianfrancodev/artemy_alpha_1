@@ -17,187 +17,187 @@ class _ShopState extends State<Shop> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            FadeAnimation(
-              1,
-              Container(
-                height: 500,
+            Container(
+              height: 400,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/background.jpg'),
+                      fit: BoxFit.cover)),
+              child: Container(
                 decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/background.jpg'),
-                        fit: BoxFit.cover)),
-                child: Container(
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.bottomRight,
-                          colors: [
-                        Colors.black.withOpacity(.8),
-                        Colors.black.withOpacity(.2)
-                      ])),
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 50),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            FadeAnimation(
-                              1,
+                    gradient: LinearGradient(
+                        begin: Alignment.bottomRight,
+                        colors: [
+                      Colors.black.withOpacity(.8),
+                      Colors.black.withOpacity(.2)
+                    ])),
+                child: Padding(
+                  padding: EdgeInsets.only(top: 50),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          FadeAnimation(
+                            0.5,
+                            IconButton(
+                              icon: Icon(
+                                Icons.favorite,
+                                color: Colors.white,
+                              ),
+                              onPressed: () {},
+                            ),
+                          ),
+                          FadeAnimation(
+                              0.5,
                               IconButton(
                                 icon: Icon(
-                                  Icons.favorite,
+                                  Icons.shopping_cart,
                                   color: Colors.white,
                                 ),
                                 onPressed: () {},
+                              ))
+                        ],
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            FadeAnimation(
+                              0.5,
+                              Text(
+                                "Nuevos Productos",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 35),
                               ),
                             ),
+                            SizedBox(
+                              height: 15,
+                            ),
                             FadeAnimation(
-                                1,
-                                IconButton(
-                                  icon: Icon(
-                                    Icons.shopping_cart,
-                                    color: Colors.white,
-                                  ),
-                                  onPressed: () {},
+                                0.5,
+                                Row(
+                                  children: [
+                                    Text(
+                                      "VER MAS",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    SizedBox(
+                                      width: 4,
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Colors.white,
+                                      size: 15,
+                                    )
+                                  ],
                                 ))
                           ],
                         ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 20),
+              child: Column(
+                children: [
+                  FadeAnimation(
+                    0.5,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
                         Padding(
-                          padding: EdgeInsets.all(20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              FadeAnimation(
-                                1,
-                                Text(
-                                  "Nuevos Productos",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 35),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              FadeAnimation(
-                                  1,
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "VER MAS",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                      SizedBox(
-                                        width: 4,
-                                      ),
-                                      Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Colors.white,
-                                        size: 15,
-                                      )
-                                    ],
-                                  ))
-                            ],
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            "Categorias",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
                           ),
                         )
                       ],
                     ),
                   ),
-                ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  CarouselSlider(
+                    options: CarouselOptions(
+                        aspectRatio: 16 / 9, autoPlay: true, height: 300),
+                    items: categoriesList.map((category) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                            width: MediaQuery.of(context).size.width,
+                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(16),
+                                child: makeCategory(
+                                    image: category.url,
+                                    title: category.name,
+                                    tag: category.tag)),
+                          );
+                        },
+                      );
+                    }).toList(),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  FadeAnimation(
+                    0.5,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            "Mas Solicitados",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  CarouselSlider(
+                    options: CarouselOptions(aspectRatio: 3 / 2.2, height: 200),
+                    items: trendsList.map((category) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                            width: MediaQuery.of(context).size.width,
+                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(16),
+                                child: makeCategory(
+                                    image: category.url,
+                                    title: category.name,
+                                    tag: category.tag)),
+                          );
+                        },
+                      );
+                    }).toList(),
+                  ),
+                ],
               ),
             ),
-            FadeAnimation(
-                1,
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 20),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: Text(
-                              "Categorias",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      CarouselSlider(
-                        options: CarouselOptions(
-                            aspectRatio: 16 / 9, autoPlay: true, height: 300),
-                        items: categoriesList.map((category) {
-                          return Builder(
-                            builder: (BuildContext context) {
-                              return Container(
-                                width: MediaQuery.of(context).size.width,
-                                margin: EdgeInsets.symmetric(horizontal: 10),
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(16),
-                                    child: makeCategory(
-                                        image: category.url,
-                                        title: category.name,
-                                        tag: category.tag)),
-                              );
-                            },
-                          );
-                        }).toList(),
-                      ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: Text(
-                              "Mas Solicitados",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      CarouselSlider(
-                        options:
-                            CarouselOptions(aspectRatio: 3 / 2.2, height: 200),
-                        items: trendsList.map((category) {
-                          return Builder(
-                            builder: (BuildContext context) {
-                              return Container(
-                                width: MediaQuery.of(context).size.width,
-                                margin: EdgeInsets.symmetric(horizontal: 10),
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(16),
-                                    child: makeCategory(
-                                        image: category.url,
-                                        title: category.name,
-                                        tag: category.tag)),
-                              );
-                            },
-                          );
-                        }).toList(),
-                      ),
-                    ],
-                  ),
-                )),
           ],
         ),
       ),
@@ -251,12 +251,15 @@ class _ShopState extends State<Shop> {
                         ])),
                 child: Align(
                   alignment: Alignment.bottomLeft,
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22),
+                  child: FadeAnimation(
+                    0.5,
+                    Text(
+                      title,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25),
+                    ),
                   ),
                 ),
               ),
