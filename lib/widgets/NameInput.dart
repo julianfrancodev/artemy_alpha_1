@@ -36,7 +36,7 @@ class _NameInputState extends State<NameInput> {
             child: TextField(
               obscureText: true,
               cursorColor: Colors.white,
-              keyboardType: TextInputType.name,
+              keyboardType: TextInputType.text,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                   border: InputBorder.none,
