@@ -43,8 +43,7 @@ class _SignUpState extends State<SignUp> {
         1,
         GestureDetector(
           onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SignIn()));
+            Navigator.pushNamed(context, '/signin');
           },
           child: RichText(
             text: TextSpan(
