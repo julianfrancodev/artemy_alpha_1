@@ -1,9 +1,9 @@
 import 'package:artemy_beta_2/config/Animation.dart';
 import 'package:artemy_beta_2/screens/SignUp.dart';
-import 'package:artemy_beta_2/widgets/ButtonSignUp.dart';
-import 'package:artemy_beta_2/widgets/EmailInput.dart';
-import 'package:artemy_beta_2/widgets/ForgotButton.dart';
-import 'package:artemy_beta_2/widgets/PasswordInput.dart';
+import 'package:artemy_beta_2/widgets/login/ButtonSignUp.dart';
+import 'package:artemy_beta_2/widgets/login/EmailInput.dart';
+import 'package:artemy_beta_2/widgets/login/ForgotButton.dart';
+import 'package:artemy_beta_2/widgets/login/PasswordInput.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

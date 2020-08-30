@@ -1,4 +1,5 @@
 import 'package:artemy_beta_2/config/Animation.dart';
+import 'package:artemy_beta_2/screens/Product.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -157,7 +158,8 @@ class _CategoryPageState extends State<CategoryPage> {
                   makeProduct(
                       image: 'assets/images/image1.jpg',
                       title: "Escultura",
-                      price: "300\$"),
+                      price: "300\$",
+                      tag: "Escultura"),
                 ],
               ),
             )
@@ -167,79 +169,99 @@ class _CategoryPageState extends State<CategoryPage> {
     );
   }
 
-  Widget makeProduct({image, title, price}) {
+  Widget makeProduct({image, title, price, tag}) {
     return FadeAnimation(
         0.5,
         Container(
-          height: 200,
-          width: double.infinity,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image:
-                  DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              gradient: LinearGradient(begin: Alignment.bottomRight, colors: [
-                Colors.black.withOpacity(.8),
-                Colors.black.withOpacity(.0)
-              ]),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                FadeAnimation(1,
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 26),
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: Icon(Icons.favorite_border, color: Colors.white,),
+          child: Hero(
+            tag: tag,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Product(tag: tag)));
+              },
+              child: Material(
+                child: Container(
+                  height: 200,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                          image: AssetImage(image), fit: BoxFit.cover)),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      gradient: LinearGradient(
+                          begin: Alignment.bottomRight,
+                          colors: [
+                            Colors.black.withOpacity(.8),
+                            Colors.black.withOpacity(.0)
+                          ]),
                     ),
-                  )
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            title,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        FadeAnimation(
+                            1,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 20, horizontal: 26),
+                              child: Align(
+                                alignment: Alignment.topRight,
+                                child: Icon(
+                                  Icons.favorite_border,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            )),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    title,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  Text(
+                                    price,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                          Text(
-                            price,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      ),
+                            Container(
+                              width: 35,
+                              height: 35,
+                              margin: EdgeInsets.only(right: 20),
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle, color: Colors.white),
+                              child: Center(
+                                child: Icon(
+                                  Icons.add_shopping_cart,
+                                  size: 18,
+                                  color: Colors.grey[700],
+                                ),
+                              ),
+                            )
+                          ],
+                        )
+                      ],
                     ),
-                    Container(
-                      width: 35,
-                      height: 35,
-                      margin: EdgeInsets.only(right: 20),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.white),
-                      child: Center(
-                        child: Icon(
-                          Icons.add_shopping_cart,
-                          size: 18,
-                          color: Colors.grey[700],
-                        ),
-                      ),
-                    )
-                  ],
-                )
-              ],
+                  ),
+                ),
+              ),
             ),
           ),
         ));
