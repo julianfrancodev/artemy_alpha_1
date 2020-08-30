@@ -16,6 +16,7 @@ class _ProductState extends State<Product> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff262A2D),
       body: Column(
         children: [
           Expanded(

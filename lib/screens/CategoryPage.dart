@@ -185,12 +185,12 @@ class _CategoryPageState extends State<CategoryPage> {
                   height: 200,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
                           image: AssetImage(image), fit: BoxFit.cover)),
                   child: Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(20),
                       gradient: LinearGradient(
                           begin: Alignment.bottomRight,
                           colors: [
