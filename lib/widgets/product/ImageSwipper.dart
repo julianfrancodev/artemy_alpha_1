@@ -27,11 +27,16 @@ class _ImageSwipperState extends State<ImageSwipper> {
                   size: 8,
                   space: 10)),
           itemBuilder: (context, index) {
-            return Image(
-              image: AssetImage(
-                'assets/images/image${index + 1}.jpg',
+            return ClipRRect(
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40), bottomRight: Radius.circular(40)),
+              child: Image(
+
+                image: AssetImage(
+                  'assets/images/image${index + 1}.jpg',
+
+                ),
+                fit: BoxFit.fill,
               ),
-              fit: BoxFit.fill,
             );
           },
         ),
