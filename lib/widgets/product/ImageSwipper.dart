@@ -30,10 +30,8 @@ class _ImageSwipperState extends State<ImageSwipper> {
             return ClipRRect(
                 borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40), bottomRight: Radius.circular(40)),
               child: Image(
-
                 image: AssetImage(
                   'assets/images/image${index + 1}.jpg',
-
                 ),
                 fit: BoxFit.fill,
               ),
