@@ -22,7 +22,7 @@ class ProductDescription extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 34,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                      color: Colors.black),
                 ),
               ),
               Spacer(),
@@ -41,7 +41,7 @@ class ProductDescription extends StatelessWidget {
             0.5,
             Text(
               'Here we can see a fucking subtitle',
-              style: TextStyle(color: Colors.white70),
+              style: TextStyle(color: Colors.black87),
             ),
           ),
           SizedBox(
@@ -51,7 +51,7 @@ class ProductDescription extends StatelessWidget {
             0.5,
             Text(
               'Here we can see a fucking description about the product babe',
-              style: TextStyle(color: Colors.white70, height: 2.3),
+              style: TextStyle(color: Colors.black87, height: 2.3),
             ),
           ),
           Spacer(),
@@ -64,7 +64,7 @@ class ProductDescription extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w500,
-                      color: Colors.white),
+                      color: Colors.black),
                 ),
               ),
               Spacer(),
@@ -74,11 +74,10 @@ class ProductDescription extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                     child: Text(
                       'Add to cart',
-                      style: TextStyle(color: Colors.white),
                     ),
                     shape: StadiumBorder(),
-                    borderSide: BorderSide(width: 2, color: Colors.white30),
-                    highlightedBorderColor: Colors.white30,
+                    borderSide: BorderSide(width: 2, color: Colors.black45),
+                    highlightedBorderColor: Colors.black38,
                     onPressed: () {},
                   )),
             ],
@@ -90,7 +89,7 @@ class ProductDescription extends StatelessWidget {
 
   BoxDecoration decorationBox() {
     return BoxDecoration(
-      color: Color(0xff262A2D),
+      color: Colors.white,
     );
   }
 }
