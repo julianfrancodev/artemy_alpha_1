@@ -16,9 +16,6 @@ class _ImageSwipperState extends State<ImageSwipper> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      child: CircularBorderHero(
-        radius: 0,
-        tag: widget.tag,
         child: Swiper(
           itemCount: 3,
           pagination: SwiperPagination(
@@ -40,7 +37,6 @@ class _ImageSwipperState extends State<ImageSwipper> {
             );
           },
         ),
-      ),
     );
   }
 }

@@ -23,10 +23,7 @@ class _CategoryPageState extends State<CategoryPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            CircularBorderHero(
-              radius: 0,
-              tag: widget.tag,
-              child: Material(
+              Material(
                 child: Container(
                   height: 300,
                   decoration: BoxDecoration(
@@ -121,7 +118,6 @@ class _CategoryPageState extends State<CategoryPage> {
                   ),
                 ),
               ),
-            ),
             Padding(
               padding: EdgeInsets.all(20),
               child: Column(
@@ -173,9 +169,6 @@ class _CategoryPageState extends State<CategoryPage> {
 
   Widget makeProduct({image, title, price, tag}) {
     return Container(
-      child: CircularBorderHero(
-        radius: 20,
-        tag: tag,
         child: GestureDetector(
           onTap: () {
             Navigator.push(context,
@@ -186,12 +179,12 @@ class _CategoryPageState extends State<CategoryPage> {
               height: 400,
               width: double.infinity,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
                       image: AssetImage(image), fit: BoxFit.cover)),
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(10),
                   gradient: LinearGradient(
                       begin: Alignment.bottomRight,
                       colors: [
@@ -267,7 +260,6 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
           ),
         ),
-      ),
     );
   }
 }

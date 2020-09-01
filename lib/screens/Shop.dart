@@ -221,47 +221,43 @@ class _ShopState extends State<Shop> {
 
   Widget makeCategory({image, title, tag}) {
     return Container(
-      child: CircularBorderHero(
-        radius: 10,
-        tag: tag,
-        child: GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => CategoryPage(
-                          title: title,
-                          image: image,
-                          tag: tag,
-                        )));
-          },
-          child: Material(
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => CategoryPage(
+                        title: title,
+                        image: image,
+                        tag: tag,
+                      )));
+        },
+        child: Material(
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                    image: AssetImage(image), fit: BoxFit.cover)),
             child: Container(
+              padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                      image: AssetImage(image), fit: BoxFit.cover)),
-              child: Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    gradient: LinearGradient(
-                        begin: Alignment.bottomRight,
-                        colors: [
-                          Colors.black.withOpacity(.8),
-                          Colors.black.withOpacity(.0)
-                        ])),
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: FadeAnimation(
-                    0.5,
-                    Text(
-                      title,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25),
-                    ),
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomRight,
+                      colors: [
+                        Colors.black.withOpacity(.8),
+                        Colors.black.withOpacity(.0)
+                      ])),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: FadeAnimation(
+                  0.5,
+                  Text(
+                    title,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25),
                   ),
                 ),
               ),
