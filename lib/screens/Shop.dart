@@ -1,7 +1,8 @@
 import 'package:artemy_beta_2/config/Animation.dart';
 import 'package:artemy_beta_2/model/Category.dart';
-import 'package:artemy_beta_2/screens/CategoryPage.dart';
+import 'package:artemy_beta_2/screens/Category.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:circular_border_hero/circular_border_hero.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -220,7 +221,8 @@ class _ShopState extends State<Shop> {
 
   Widget makeCategory({image, title, tag}) {
     return Container(
-      child: Hero(
+      child: CircularBorderHero(
+        radius: 10,
         tag: tag,
         child: GestureDetector(
           onTap: () {

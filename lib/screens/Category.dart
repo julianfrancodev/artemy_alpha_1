@@ -1,5 +1,6 @@
 import 'package:artemy_beta_2/config/Animation.dart';
 import 'package:artemy_beta_2/screens/Product.dart';
+import 'package:circular_border_hero/circular_border_hero.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,8 @@ class _CategoryPageState extends State<CategoryPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Hero(
+            CircularBorderHero(
+              radius: 0,
               tag: widget.tag,
               child: Material(
                 child: Container(
@@ -158,7 +160,7 @@ class _CategoryPageState extends State<CategoryPage> {
                   makeProduct(
                       image: 'assets/images/image1.jpg',
                       title: "Escultura",
-                      price: "300\$",
+                      price: "\$300",
                       tag: "Escultura"),
                 ],
               ),
@@ -170,51 +172,53 @@ class _CategoryPageState extends State<CategoryPage> {
   }
 
   Widget makeProduct({image, title, price, tag}) {
-    return FadeAnimation(
-        0.5,
-        Container(
-          child: Hero(
-            tag: tag,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Product(tag: tag)));
-              },
-              child: Material(
-                child: Container(
-                  height: 200,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      image: DecorationImage(
-                          image: AssetImage(image), fit: BoxFit.cover)),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          begin: Alignment.bottomRight,
-                          colors: [
-                            Colors.black.withOpacity(.8),
-                            Colors.black.withOpacity(.0)
-                          ]),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        FadeAnimation(
-                            1,
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 20, horizontal: 26),
-                              child: Align(
-                                alignment: Alignment.topRight,
-                                child: Icon(
-                                  Icons.favorite_border,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            )),
+    return Container(
+      child: CircularBorderHero(
+        radius: 20,
+        tag: tag,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Product(tag: tag)));
+          },
+          child: Material(
+            child: Container(
+              height: 400,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                      image: AssetImage(image), fit: BoxFit.cover)),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomRight,
+                      colors: [
+                        Colors.black.withOpacity(.8),
+                        Colors.black.withOpacity(.0)
+                      ]),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    FadeAnimation(
+                        0.5,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 26),
+                          child: Align(
+                            alignment: Alignment.topRight,
+                            child: Icon(
+                              Icons.favorite_border,
+                              color: Colors.white,
+                              size: 30,
+                            ),
+                          ),
+                        )),
+                    FadeAnimation(
+                        0.5,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -235,35 +239,35 @@ class _CategoryPageState extends State<CategoryPage> {
                                     price,
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 30,
+                                        fontSize: 40,
                                         fontWeight: FontWeight.bold),
                                   )
                                 ],
                               ),
                             ),
                             Container(
-                              width: 35,
-                              height: 35,
+                              width: 50,
+                              height: 50,
                               margin: EdgeInsets.only(right: 20),
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle, color: Colors.white),
                               child: Center(
                                 child: Icon(
                                   Icons.add_shopping_cart,
-                                  size: 18,
+                                  size: 22,
                                   color: Colors.grey[700],
                                 ),
                               ),
                             )
                           ],
-                        )
-                      ],
-                    ),
-                  ),
+                        )),
+                  ],
                 ),
               ),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:artemy_beta_2/config/Animation.dart';
-import 'package:artemy_beta_2/screens/CategoryPage.dart';
+import 'package:artemy_beta_2/screens/Category.dart';
 import 'package:artemy_beta_2/screens/Home.dart';
 import 'package:artemy_beta_2/screens/Shop.dart';
 import 'package:artemy_beta_2/screens/SignIn.dart';

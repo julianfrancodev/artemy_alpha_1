@@ -1,3 +1,4 @@
+import 'package:circular_border_hero/circular_border_hero.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
@@ -15,7 +16,8 @@ class _ImageSwipperState extends State<ImageSwipper> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      child: Hero(
+      child: CircularBorderHero(
+        radius: 0,
         tag: widget.tag,
         child: Swiper(
           itemCount: 3,
