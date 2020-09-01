@@ -140,7 +140,7 @@ class _ShopState extends State<Shop> {
                         builder: (BuildContext context) {
                           return Container(
                             width: MediaQuery.of(context).size.width,
-                            margin: EdgeInsets.symmetric(horizontal: 15),
+                            margin: EdgeInsets.symmetric(horizontal: 10),
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(16),
                                 child: makeCategory(
@@ -183,7 +183,7 @@ class _ShopState extends State<Shop> {
                         builder: (BuildContext context) {
                           return Container(
                             width: MediaQuery.of(context).size.width,
-                            margin: EdgeInsets.symmetric(horizontal: 15),
+                            margin: EdgeInsets.symmetric(horizontal: 10),
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(16),
                                 child: makeCategory(
