@@ -175,15 +175,15 @@ class _CategoryPageState extends State<CategoryPage> {
           },
           child: Material(
             child: Container(
-              height: 400,
+              height: 200,
               width: double.infinity,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(16),
                   image: DecorationImage(
                       image: AssetImage(image), fit: BoxFit.cover)),
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(16),
                   gradient: LinearGradient(
                       begin: Alignment.bottomRight,
                       colors: [

@@ -21,7 +21,7 @@ class _ShopState extends State<Shop> {
               height: 500,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/images/background.jpg'),
+                      image: AssetImage('assets/images/background01.jpg'),
                       fit: BoxFit.cover)),
               child: Container(
                 decoration: BoxDecoration(
@@ -134,7 +134,7 @@ class _ShopState extends State<Shop> {
                   ),
                   CarouselSlider(
                     options: CarouselOptions(
-                        aspectRatio: 16/9, autoPlay: true),
+                        aspectRatio: 16 / 9, autoPlay: true),
                     items: categoriesList.map((category) {
                       return Builder(
                         builder: (BuildContext context) {

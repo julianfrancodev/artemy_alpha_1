@@ -74,7 +74,7 @@ class _SignInState extends State<SignIn> {
               Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('assets/images/signup.jpg'),
+                        image: AssetImage('assets/images/signin.jpg'),
                         fit: BoxFit.cover)),
                 child: Container(
                   decoration: BoxDecoration(
