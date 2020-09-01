@@ -2,7 +2,6 @@ import 'package:artemy_beta_2/config/Animation.dart';
 import 'package:artemy_beta_2/model/Category.dart';
 import 'package:artemy_beta_2/screens/Category.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:circular_border_hero/circular_border_hero.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -19,7 +18,7 @@ class _ShopState extends State<Shop> {
         child: Column(
           children: [
             Container(
-              height: 400,
+              height: 500,
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/images/background.jpg'),
@@ -135,13 +134,13 @@ class _ShopState extends State<Shop> {
                   ),
                   CarouselSlider(
                     options: CarouselOptions(
-                        aspectRatio: 16 / 9, autoPlay: true, height: 300),
+                        aspectRatio: 16/9, autoPlay: true),
                     items: categoriesList.map((category) {
                       return Builder(
                         builder: (BuildContext context) {
                           return Container(
                             width: MediaQuery.of(context).size.width,
-                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            margin: EdgeInsets.symmetric(horizontal: 15),
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(16),
                                 child: makeCategory(
@@ -154,7 +153,7 @@ class _ShopState extends State<Shop> {
                     }).toList(),
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 30,
                   ),
                   FadeAnimation(
                     0.5,
@@ -178,13 +177,13 @@ class _ShopState extends State<Shop> {
                     height: 20,
                   ),
                   CarouselSlider(
-                    options: CarouselOptions(aspectRatio: 3 / 2.2, height: 200),
+                    options: CarouselOptions(aspectRatio: 16 / 7),
                     items: trendsList.map((category) {
                       return Builder(
                         builder: (BuildContext context) {
                           return Container(
                             width: MediaQuery.of(context).size.width,
-                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            margin: EdgeInsets.symmetric(horizontal: 15),
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(16),
                                 child: makeCategory(

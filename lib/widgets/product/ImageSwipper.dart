@@ -1,4 +1,3 @@
-import 'package:circular_border_hero/circular_border_hero.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 

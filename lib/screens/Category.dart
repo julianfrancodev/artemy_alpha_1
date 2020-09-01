@@ -1,6 +1,5 @@
 import 'package:artemy_beta_2/config/Animation.dart';
 import 'package:artemy_beta_2/screens/Product.dart';
-import 'package:circular_border_hero/circular_border_hero.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -179,12 +178,12 @@ class _CategoryPageState extends State<CategoryPage> {
               height: 400,
               width: double.infinity,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
                       image: AssetImage(image), fit: BoxFit.cover)),
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(20),
                   gradient: LinearGradient(
                       begin: Alignment.bottomRight,
                       colors: [
